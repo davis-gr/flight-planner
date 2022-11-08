@@ -2,6 +2,7 @@ package io.codelex.flightplanner;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -60,9 +61,20 @@ public class FlightService {
         }
     }
 
-
     public List<Flight> getFlightList() {
         return flightRepository.getFlightList();
     }
 
+    public SearchFlightsResponse searchFlights(@RequestBody SearchFlightsRequest searchFlightsRequest) {
+        SearchFlightsRequest searchRequest = new SearchFlightsRequest(searchFlightsRequest.getFrom(), searchFlightsRequest.getTo(), searchFlightsRequest.getDepartureDate());
+        if (searchRequest.getFrom().equals(searchRequest.getTo())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't fly to the same airport!");
+        }
+        List<Flight> searchResult = flightRepository.getFlightList().stream().filter(a -> a.getFrom().getAirport().equalsIgnoreCase(searchFlightsRequest.getFrom())
+                || a.getTo().getAirport().equalsIgnoreCase(searchFlightsRequest.getTo())
+                || a.getDepartureTime().equals(searchFlightsRequest.getDepartureDate())).toList();
+
+        return new SearchFlightsResponse(searchResult, 0, searchResult.size());
+
+    }
 }
