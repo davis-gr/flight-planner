@@ -15,11 +15,11 @@ public class FlightRepository {
     public FlightRepository() {
     }
 
-    public void saveFlight(Flight flight) {
+    public synchronized void saveFlight(Flight flight) {
         flightList.add(flight);
     }
 
-    public void deleteFlight(Long flightId) {
+    public synchronized void deleteFlight(Long flightId) {
         flightList.removeIf(flight -> flight.getId().equals(flightId));
     }
 
@@ -31,7 +31,7 @@ public class FlightRepository {
         flightList.clear();
     }
 
-    public List<Flight> getFlightList() {
+    public synchronized List<Flight> getFlightList() {
         return flightList;
     }
 }

@@ -19,7 +19,7 @@ public class FlightService {
         this.airportService = airportService;
     }
 
-    public Flight saveFlight(AddFlightRequest flightRequest) {
+    public synchronized Flight saveFlight(AddFlightRequest flightRequest) {
         try {
             Flight flight = new Flight(flightRequest.getFrom(), flightRequest.getTo(), flightRequest.getCarrier(), flightRequest.getDepartureTime(), flightRequest.getArrivalTime());
             if (flightRepository.getFlightList().size() > 0) {
