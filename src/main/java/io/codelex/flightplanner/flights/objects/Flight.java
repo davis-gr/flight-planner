@@ -1,4 +1,6 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.flights.objects;
+
+import io.codelex.flightplanner.airports.objects.Airport;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

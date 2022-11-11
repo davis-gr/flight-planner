@@ -1,7 +1,6 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.api;
 
 import javax.validation.constraints.NotNull;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class SearchFlightsRequest {

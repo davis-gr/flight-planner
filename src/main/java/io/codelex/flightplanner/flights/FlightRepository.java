@@ -1,5 +1,6 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.flights;
 
+import io.codelex.flightplanner.flights.objects.Flight;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

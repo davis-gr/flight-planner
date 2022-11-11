@@ -1,5 +1,10 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.flights;
 
+import io.codelex.flightplanner.airports.AirportService;
+import io.codelex.flightplanner.api.AddFlightRequest;
+import io.codelex.flightplanner.api.SearchFlightsRequest;
+import io.codelex.flightplanner.api.SearchFlightsResponse;
+import io.codelex.flightplanner.flights.objects.Flight;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;

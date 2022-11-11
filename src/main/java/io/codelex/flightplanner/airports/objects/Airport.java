@@ -1,6 +1,4 @@
-package io.codelex.flightplanner;
-
-import org.springframework.util.StringUtils;
+package io.codelex.flightplanner.airports.objects;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

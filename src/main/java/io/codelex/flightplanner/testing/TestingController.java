@@ -1,5 +1,6 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.testing;
 
+import io.codelex.flightplanner.flights.FlightService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
